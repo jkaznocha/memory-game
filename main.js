@@ -3,7 +3,7 @@ const colors = ["lightyellow", "lightsea", "lightgreen", "lightblue", "lightcora
     section = document.querySelector('section');
 
 let div = document.querySelectorAll('div');
-
+let counter = 0;
 
 let blocks = [...div];
 
@@ -19,6 +19,13 @@ const init = function () {
     window.setTimeout(hidden, 1000)
 }
 
+const resetGame = () => {
+    location.reload();
+    counert++;
+}
+
+
+
 const hidden = () => {
     blocks.forEach(block => block.classList.add('hidden'))
 }
@@ -27,13 +34,15 @@ const hidden = () => {
 const hiddenBlocks = () => {
 
     const index = blocks.findIndex(block => !(block.classList.contains('hidden')));
-    console.log(index)
+    // console.log(index)
     const index2 = blocks.findIndex((block, indeks) => !(block.classList.contains('hidden')) && indeks !== index)
-    console.log(index2)
+    // console.log(index2)
 
     if (blocks[index].classList.value === blocks[index2].classList.value) {
         blocks[index].classList.add("opacity");
+        blocks[index].removeEventListener('click', showBlocks);
         blocks[index2].classList.add('opacity');
+        blocks[index2].removeEventListener('click', showBlocks)
         return blocks
     } else {
         return blocks
@@ -44,17 +53,17 @@ const endGame = () => {
 
 
     if (blocks.every(block => block.classList.contains('opacity'))) {
-        section.style.flexDirection = "column";
-        section.style.justifyContent = "center";
+        section.classList.add('end');
         section.innerHTML = '<h3> Wygrałeś! Gratulacje!</h3><br><h6>Jeśli chcesz zagrać jeszcze raz wciśnij </h6><button class="reset">Reset</button>';
 
-
+        const btnReset = document.querySelector('button.reset');
+        btnReset.addEventListener('click', resetGame)
     }
 }
 
 const showBlocks = (e) => {
     let newBlocks = blocks.filter(block => block.classList.contains("hidden"));
-    console.log(newBlocks)
+    // console.log(newBlocks)
     if (newBlocks.length > 16) {
         e.target.classList.remove('hidden');
         // console.log(e.target.classList.value)
@@ -64,36 +73,8 @@ const showBlocks = (e) => {
         hidden();
     }
     endGame();
+
 };
 
-
 btnStart.addEventListener('click', init);
-// const randomNumber = () => {
-
-//     const number = Math.floor(Math.random() * 9),
-//         number2 = Math.floor(Math.random() * 9)
-//     color1 = colors[number];
-//     color2 = colors[number2];
-//     //  return (color1, color2)
-//     console.log(color1, color2)
-// }
-
-// const startGame = () => {
-
-//     for (i = 0; i <= 9; i++) {
-//         randomNumber();
-
-//         blocks.forEach(block => block.style.backgroundColor = color1)
-//     };
-//     for (i = 0; 18 >= i > 9; i++) {
-//         randomNumber();
-
-//         blocks.forEach(block => block.style.backgroundColor = color2)
-//     };
-
-//     return blocks
-// }
-
-// window.addEventListener('load', startGame)
-
 

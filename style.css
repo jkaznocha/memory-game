@@ -47,6 +47,10 @@ section{
     flex-wrap: wrap;
 
 }
+.end{
+    flex-direction: column;
+    justify-content: center;
+}
  button.reset{
      padding:5px;
      height:20%;
