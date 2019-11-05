@@ -1,5 +1,6 @@
 const colors = ["lightyellow", "lightsea", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "lightbrown", "lightpink", "lightyellow", "lightsea", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "lightbrown", "lightpink"],
-    btnStart = document.querySelector("button.start");
+    btnStart = document.querySelector("button.start"),
+    section = document.querySelector('section');
 
 let div = document.querySelectorAll('div');
 
@@ -40,9 +41,13 @@ const hiddenBlocks = () => {
 }
 
 const endGame = () => {
-    if (blocks.some(block => !(block.classList.contains('hidden')))) {
-        return
-    } else {
+
+
+    if (blocks.every(block => block.classList.contains('opacity'))) {
+        section.style.flexDirection = "column";
+        section.style.justifyContent = "center";
+        section.innerHTML = '<h3> Wygrałeś! Gratulacje!</h3><br><h6>Jeśli chcesz zagrać jeszcze raz wciśnij </h6><button class="reset">Reset</button>';
+
 
     }
 }

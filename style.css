@@ -23,7 +23,7 @@ header{
     flex-direction: column;
   
 }
-button.start{
+button{
 width:10%;
 height:30%;
 align-self: center;
@@ -36,6 +36,7 @@ border:2px solid #fff;
 padding:10px;
 }
 
+
 section{
     height:70%;
     width:90%;
@@ -46,6 +47,12 @@ section{
     flex-wrap: wrap;
 
 }
+ button.reset{
+     padding:5px;
+     height:20%;
+     font-size: 23px;
+
+ }
 
 section div{
    flex-basis: 15%;
