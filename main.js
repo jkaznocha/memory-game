@@ -4,7 +4,7 @@ const colors = ["lightyellow", "lightsea", "lightgreen", "lightblue", "lightcora
 let div = document.querySelectorAll('div');
 
 
-const blocks = [...div];
+let blocks = [...div];
 
 const init = function () {
 
@@ -22,21 +22,43 @@ const hidden = () => {
     blocks.forEach(block => block.classList.add('hidden'))
 }
 
+
+const hiddenBlocks = () => {
+
+    const index = blocks.findIndex(block => !(block.classList.contains('hidden')));
+    console.log(index)
+    const index2 = blocks.findIndex((block, indeks) => !(block.classList.contains('hidden')) && indeks !== index)
+    console.log(index2)
+
+    if (blocks[index].classList.value === blocks[index2].classList.value) {
+        blocks[index].classList.add("opacity");
+        blocks[index2].classList.add('opacity');
+        return blocks
+    } else {
+        return blocks
+    }
+}
+
+const endGame = () => {
+    if (blocks.some(block => !(block.classList.contains('hidden')))) {
+        return
+    } else {
+
+    }
+}
+
 const showBlocks = (e) => {
     let newBlocks = blocks.filter(block => block.classList.contains("hidden"));
     console.log(newBlocks)
     if (newBlocks.length > 16) {
         e.target.classList.remove('hidden');
-        console.log(e.target.classList.value)
-        let blocksWithoutHidden = blocks.filter(block => !(block.classList.contains("hidden")));
-        if (blocksWithoutHidden[0].classList.value === blocksWithoutHidden[1].classList.value) {
-            blocksWithoutHidden.forEach(block => block.classList.add('opacity'))
-            const index = blocks.findIndex(block => (block.classList.contains('hidden')));
-            console.log(index);
-        }
+        // console.log(e.target.classList.value)
+
+        blocks = hiddenBlocks();
     } else {
         hidden();
     }
+    endGame();
 };
 
 
