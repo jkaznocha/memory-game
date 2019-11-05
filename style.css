@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: navy;
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+header{
+    margin:20px;
+    height: 20vh;
+    border: 1px solid white;
+}
+
+section{
+    height:70%;
+    width:90%;
+
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-wrap: wrap;
+
+}
+
+section div{
+   flex-basis: 15%;
+   flex-grow:1;
+    border:1px solid white;
+    background-color: #000;
+}
+
+.lightviolet{
+    background-color:rgb(131, 73, 131);
+}
+
+.lightpink{
+    background-color:lightpink;
+}
+
+.lightsee{
+    background-color:lightseagreen;
+}
+
+.lightblue{
+    background-color:lightblue;
+}
+
+.lightgreen{
+    background-color:lightgreen;
+}
+
+.lightcoral{
+    background-color:lightcoral;
+}
+
+.lightgrey{
+    background-color:lightgrey;
+}
+
+.lightyellow{
+    background-color:lightyellow;
+}
+
+.lightbrow{
+    background-color:rgb(63, 42, 42);
+}
+
+.hidden{
+    background-color: #000;
+}
+
+.opacity{
+    opacity:1;
+}
+
+
+
+@media (orientation:portrait){
+    header{
+
+        height: 10vh;
+        border: 1px solid white;
+    }
+
+    section div{
+        flex-basis: 30%;
+        flex-grow:1;
+  
+     }
+}
