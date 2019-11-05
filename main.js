@@ -1,4 +1,4 @@
-const colors = ["lightyellow", "lightseagreen", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "white", "lightpink", "lightyellow", "lightseagreen", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "white", "lightpink"],
+const colors = ["lightyellow", "lightsea", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "lightbrown", "lightpink", "lightyellow", "lightsea", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "lightbrown", "lightpink"],
     btnStart = document.querySelector("button.start");
 
 let div = document.querySelectorAll('div');
@@ -7,12 +7,23 @@ let div = document.querySelectorAll('div');
 const blocks = [...div];
 
 const init = function () {
-    let index = Math.floor(Math.random() * 18);
-    console.log(index)
+
+    blocks.forEach(block => {
+        let index = Math.floor(Math.random() * colors.length);
+        block.classList.add(colors[index]);
+        colors.splice(index, 1);
+    })
+
+    // 
+    // 
+    // console.log(index)
+    // colors.splice(index, 10);
+    // blocks.splice(index, 1)
+
 }
 
 
-btnStart.addEventListener('click', init)
+btnStart.addEventListener('click', init);
 // const randomNumber = () => {
 
 //     const number = Math.floor(Math.random() * 9),
