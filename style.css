@@ -19,6 +19,20 @@ header{
     margin:20px;
     height: 20vh;
     border: 1px solid white;
+    display:flex;
+    flex-direction: column;
+  
+}
+button.start{
+width:10%;
+align-self: center;
+margin:5px;
+font-size:20px;
+font-weight: bold;
+background-color: #000;
+color: #fff;
+border:2px solid #fff;
+padding:10px;
 }
 
 section{

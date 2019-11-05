@@ -1,10 +1,18 @@
-const colors = ["lightyellow", "lightseagreen", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "white", "lightpink"],
-    div = document.querySelectorAll('div');
+const colors = ["lightyellow", "lightseagreen", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "white", "lightpink", "lightyellow", "lightseagreen", "lightgreen", "lightblue", "lightcoral", "lightviolet", "lightgrey", "white", "lightpink"],
+    btnStart = document.querySelector("button.start");
 
-// const blocks = [...div];
+let div = document.querySelectorAll('div');
 
 
+const blocks = [...div];
 
+const init = function () {
+    let index = Math.floor(Math.random() * 18);
+    console.log(index)
+}
+
+
+btnStart.addEventListener('click', init)
 // const randomNumber = () => {
 
 //     const number = Math.floor(Math.random() * 9),
