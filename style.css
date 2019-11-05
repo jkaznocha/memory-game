@@ -17,7 +17,7 @@ body{
 
 header{
     margin:20px;
-    height: 20vh;
+    height: 30%;
     border: 1px solid white;
     display:flex;
     flex-direction: column;
@@ -25,6 +25,7 @@ header{
 }
 button.start{
 width:10%;
+height:30%;
 align-self: center;
 margin:5px;
 font-size:20px;
@@ -104,8 +105,13 @@ section div{
 
         height: 10vh;
         border: 1px solid white;
+        font-size:18px;
     }
-
+button.start{
+    font-size: 15px;
+    height:50%;
+    width:30%;
+}
     section div{
         flex-basis: 30%;
         flex-grow:1;

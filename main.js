@@ -12,15 +12,32 @@ const init = function () {
         let index = Math.floor(Math.random() * colors.length);
         block.classList.add(colors[index]);
         colors.splice(index, 1);
+        block.addEventListener('click', showBlocks)
+
     })
-
-    // 
-    // 
-    // console.log(index)
-    // colors.splice(index, 10);
-    // blocks.splice(index, 1)
-
+    window.setTimeout(hidden, 1000)
 }
+
+const hidden = () => {
+    blocks.forEach(block => block.classList.add('hidden'))
+}
+
+const showBlocks = (e) => {
+    let newBlocks = blocks.filter(block => block.classList.contains("hidden"));
+    console.log(newBlocks)
+    if (newBlocks.length > 16) {
+        e.target.classList.remove('hidden');
+        console.log(e.target.classList.value)
+        let blocksWithoutHidden = blocks.filter(block => !(block.classList.contains("hidden")));
+        if (blocksWithoutHidden[0].classList.value === blocksWithoutHidden[1].classList.value) {
+            blocksWithoutHidden.forEach(block => block.classList.add('opacity'))
+            const index = blocks.findIndex(block => (block.classList.contains('hidden')));
+            console.log(index);
+        }
+    } else {
+        hidden();
+    }
+};
 
 
 btnStart.addEventListener('click', init);
